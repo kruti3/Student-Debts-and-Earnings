@@ -9,5 +9,5 @@ def getNpFromFile(file_path):
 	data_array = []
 	for row in reader:
 		data_array.append(row)
-		
+
 	return data_array[0], data_array[1:]
