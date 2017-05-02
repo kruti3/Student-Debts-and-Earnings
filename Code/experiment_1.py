@@ -228,34 +228,16 @@ class StudentDebtEarning():
         self.X = np.delete(self.numeric_data_array, ind_del_list, axis=1)
 
         self.X_train , self.X_test, self.Y_train, self.Y_test = train_test_split(self.X, self.Y, test_size=0.2, random_state=0)
-                
-    def feature_selection(self, regression_tuple, param_dict):
 
-        '''
-        regression tuple contains the regressor instance, param_dict contains hyperparametrs
-        This is a pipeline created for selecting k best features and hyperparameter selection 
-        '''
-        number_of_features = self.X.shape[1]
+    def feature_selection(self, regression_tuple):
 
-        pipeline_list = [('sel', SelectKBest())]
-        pipeline_list.append(regression_tuple)
-        pipeline = Pipeline(pipeline_list)
-
-        param = {'sel__k':[i for i in range(10,number_of_features+1,5)]}
-        if len(param_dict):
-            param.update(param_dict)
-        print "Using Kfold = 10"
-        cv = KFold(n=10)
-
-        print "Applying GridSearch CV"
-        self.regr = GridSearchCV(pipeline, param)
+        self.regr = regression_tuple[1]
 
     def train(self):
         '''
         Fit data into the regressor
         '''
         self.regr.fit(self.X_train, self.Y_train)
-        print self.regr.best_params_
         
     def predict(self):
         '''
@@ -310,12 +292,8 @@ def main(file_name):
     '''
 
     # Different models applied
-    regression_str = ["Linear regression", "Ridge", "Lasso", "Decision Tree"]
-    regression_tuple = [('lr',linear_model.LinearRegression(normalize=True)), ('ridge', linear_model.Ridge(random_state=0)),
-                             ('lasso', linear_model.Lasso(random_state=0)), ('tree',DecisionTreeRegressor())]
-    regression_param = [{}, {'ridge__alpha':[0.1,1.0,10.0]}, 
-                        {'lasso__alpha': [0.1,1.0,2.0,5.0,10.0]},
-                        {'tree__max_depth': [5,10,15,20,25,30,50,100,150,200]}]
+    regression_str = ["SVR", "KNN"]
+    regression_tuple = [('svr',SVR(kernel='rbf')), ('knn', KNeighborsRegressor())]
     
     
     # Predicting for each variable
@@ -328,7 +306,7 @@ def main(file_name):
         for i in range(len(regression_str)):
             print "\nRegressor: ", regression_str[i]
             # Hyperparameter/ Feature selection/ CV
-            obj.feature_selection(regression_tuple[i], regression_param[i])
+            obj.feature_selection(regression_tuple[i])
 
             # Training and Prediction
             obj.train()

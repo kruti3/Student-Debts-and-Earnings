@@ -6,6 +6,7 @@ def getNpFromFile(file_path):
 	fp = open(file_path)
 	reader = csv.reader(fp)
 
+	print "Opened csv for reading data"
 	data_array = []
 	for row in reader:
 		data_array.append(row)

@@ -1,0 +1,47 @@
+
+Y : MD_EARN_WNE_P6
+Deleting columns of Y variable from the dataset, obtaining Y vectors for debt and earnings
+
+Regressor:  SVR
+Root Mean Squared Error 10563.0109452
+R2 error -0.0352355251194
+Get range of data of a column
+Percent root mean squared error 38.3737213089
+
+Regressor:  KNN
+Root Mean Squared Error 5956.3988494
+R2 error 0.670821661112
+Get range of data of a column
+Percent root mean squared error 21.6386398383
+
+
+Y : DEBT_MDN
+Deleting columns of Y variable from the dataset, obtaining Y vectors for debt and earnings
+
+Regressor:  SVR
+Root Mean Squared Error 4498.57995245
+R2 error -0.0107463557676
+Get range of data of a column
+Percent root mean squared error 46.1590855814
+
+Regressor:  KNN
+Root Mean Squared Error 2495.77042819
+R2 error 0.688899602346
+Get range of data of a column
+Percent root mean squared error 25.6086325027
+
+
+Y : RPY_5YR_RT
+Deleting columns of Y variable from the dataset, obtaining Y vectors for debt and earnings
+
+Regressor:  SVR
+Root Mean Squared Error 0.172036150942
+R2 error 0.0133231737419
+Get range of data of a column
+Percent root mean squared error 27.9345064512
+
+Regressor:  KNN
+Root Mean Squared Error 0.078952267421
+R2 error 0.79219083009
+Get range of data of a column
+Percent root mean squared error 12.8199370396

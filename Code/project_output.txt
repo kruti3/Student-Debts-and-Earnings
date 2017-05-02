@@ -1,0 +1,137 @@
+
+Y : MD_EARN_WNE_P6
+Deleting columns of Y variable from the dataset, obtaining Y vectors for debt and earnings
+
+Regressor:  Linear regression
+{'sel__k': [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305, 310, 315, 320, 325, 330, 335, 340, 345, 350, 355]}
+Using Kfold = 10
+Applying GridSearch CV
+/home/kruti/anaconda2/lib/python2.7/site-packages/sklearn/feature_selection/univariate_selection.py:113: UserWarning: Features [1] are constant.
+  UserWarning)
+/home/kruti/anaconda2/lib/python2.7/site-packages/sklearn/feature_selection/univariate_selection.py:114: RuntimeWarning: invalid value encountered in divide
+  f = msb / msw
+{'sel__k': 150}
+Root Mean Squared Error 4870.62279697
+R2 error 0.779893584356
+Get range of data of a column
+Percent root mean squared error 17.6941899219
+
+Regressor:  Ridge
+{'ridge__alpha': [0.1, 1.0, 10.0], 'sel__k': [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305, 310, 315, 320, 325, 330, 335, 340, 345, 350, 355]}
+Using Kfold = 10
+Applying GridSearch CV
+{'ridge__alpha': 1.0, 'sel__k': 355}
+Root Mean Squared Error 4736.59961618
+R2 error 0.791840105969
+Get range of data of a column
+Percent root mean squared error 17.2073052434
+
+Regressor:  Lasso
+{'sel__k': [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305, 310, 315, 320, 325, 330, 335, 340, 345, 350, 355], 'lasso__alpha': [0.1, 1.0, 2.0, 5.0, 10.0]}
+Using Kfold = 10
+Applying GridSearch CV
+/home/kruti/anaconda2/lib/python2.7/site-packages/sklearn/linear_model/coordinate_descent.py:484: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+{'sel__k': 355, 'lasso__alpha': 5.0}
+Root Mean Squared Error 4787.82975154
+R2 error 0.787312921656
+Get range of data of a column
+Percent root mean squared error 17.3934160925
+
+Regressor:  Decision Tree
+{'tree__max_depth': [5, 10, 15, 20, 25, 30, 50, 100, 150, 200], 'sel__k': [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305, 310, 315, 320, 325, 330, 335, 340, 345, 350, 355]}
+Using Kfold = 10
+Applying GridSearch CV
+{'tree__max_depth': 5, 'sel__k': 120}
+Root Mean Squared Error 5739.04725218
+R2 error 0.694407065941
+Get range of data of a column
+Percent root mean squared error 20.8490364136
+
+
+Y : DEBT_MDN
+Deleting columns of Y variable from the dataset, obtaining Y vectors for debt and earnings
+
+Regressor:  Linear regression
+{'sel__k': [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305, 310, 315, 320, 325, 330, 335, 340, 345, 350, 355]}
+Using Kfold = 10
+Applying GridSearch CV
+{'sel__k': 215}
+Root Mean Squared Error 2222.7786324
+R2 error 0.753234907831
+Get range of data of a column
+Percent root mean squared error 22.8075148615
+
+Regressor:  Ridge
+{'ridge__alpha': [0.1, 1.0, 10.0], 'sel__k': [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305, 310, 315, 320, 325, 330, 335, 340, 345, 350, 355]}
+Using Kfold = 10
+Applying GridSearch CV
+{'ridge__alpha': 10.0, 'sel__k': 345}
+Root Mean Squared Error 2183.86281643
+R2 error 0.761799864167
+Get range of data of a column
+Percent root mean squared error 22.408206969
+
+Regressor:  Lasso
+{'sel__k': [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305, 310, 315, 320, 325, 330, 335, 340, 345, 350, 355], 'lasso__alpha': [0.1, 1.0, 2.0, 5.0, 10.0]}
+Using Kfold = 10
+Applying GridSearch CV
+{'sel__k': 345, 'lasso__alpha': 2.0}
+Root Mean Squared Error 2190.46798155
+R2 error 0.760356796824
+Get range of data of a column
+Percent root mean squared error 22.4759813301
+
+Regressor:  Decision Tree
+{'tree__max_depth': [5, 10, 15, 20, 25, 30, 50, 100, 150, 200], 'sel__k': [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305, 310, 315, 320, 325, 330, 335, 340, 345, 350, 355]}
+Using Kfold = 10
+Applying GridSearch CV
+{'tree__max_depth': 5, 'sel__k': 180}
+Root Mean Squared Error 2714.89293483
+R2 error 0.631873813615
+Get range of data of a column
+Percent root mean squared error 27.8570074662
+
+
+Y : RPY_5YR_RT
+Deleting columns of Y variable from the dataset, obtaining Y vectors for debt and earnings
+
+Regressor:  Linear regression
+{'sel__k': [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305, 310, 315, 320, 325, 330, 335, 340, 345, 350, 355]}
+Using Kfold = 10
+Applying GridSearch CV
+{'sel__k': 235}
+Root Mean Squared Error 0.0721082245573
+R2 error 0.826657482885
+Get range of data of a column
+Percent root mean squared error 11.7086301516
+
+Regressor:  Ridge
+{'ridge__alpha': [0.1, 1.0, 10.0], 'sel__k': [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305, 310, 315, 320, 325, 330, 335, 340, 345, 350, 355]}
+Using Kfold = 10
+Applying GridSearch CV
+{'ridge__alpha': 1.0, 'sel__k': 355}
+Root Mean Squared Error 0.069894400267
+R2 error 0.837137814242
+Get range of data of a column
+Percent root mean squared error 11.3491586766
+
+Regressor:  Lasso
+{'sel__k': [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305, 310, 315, 320, 325, 330, 335, 340, 345, 350, 355], 'lasso__alpha': [0.1, 1.0, 2.0, 5.0, 10.0]}
+Using Kfold = 10
+Applying GridSearch CV
+{'sel__k': 160, 'lasso__alpha': 0.1}
+Root Mean Squared Error 0.0873065485423
+R2 error 0.745885683642
+Get range of data of a column
+Percent root mean squared error 14.1764700624
+
+Regressor:  Decision Tree
+{'tree__max_depth': [5, 10, 15, 20, 25, 30, 50, 100, 150, 200], 'sel__k': [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305, 310, 315, 320, 325, 330, 335, 340, 345, 350, 355]}
+Using Kfold = 10
+Applying GridSearch CV
+^[[A{'tree__max_depth': 10, 'sel__k': 110}
+Root Mean Squared Error 0.0814136807847
+R2 error 0.779031547774
+Get range of data of a column
+Percent root mean squared error 13.2196109867

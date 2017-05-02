@@ -176,7 +176,7 @@ class StudentDebtEarning():
         np.savetxt("../Data/Intermediate_"+self.np_filename, self.numeric_data_array)
         print self.numeric_data_array.shape    
 
-    def refine_data_impute(self):
+    def refine_data_impute(self, strategy_str):
         '''
         replacing non standard values
 
@@ -185,7 +185,7 @@ class StudentDebtEarning():
         self.modify_NULL_values(-2)
 
         print "Imputing privacySuppressed values by the mean of each column"
-        imp = Imputer(missing_values=-1,strategy="mean")
+        imp = Imputer(missing_values=-1,strategy=strategy_str)
         self.numeric_data_array = imp.fit_transform(self.numeric_data_array)
         
 
@@ -244,6 +244,7 @@ class StudentDebtEarning():
         param = {'sel__k':[i for i in range(10,number_of_features+1,5)]}
         if len(param_dict):
             param.update(param_dict)
+        
         print "Using Kfold = 10"
         cv = KFold(n=10)
 
@@ -280,7 +281,7 @@ class StudentDebtEarning():
 def main(file_name):
 
     obj = StudentDebtEarning(file_name)
-    '''
+    
     if not os.path.isfile("../Data/"+obj.np_filename):
         #Read data from raw file
         obj.readData()
@@ -296,10 +297,10 @@ def main(file_name):
     
     #Eliminate data if Y output is absent or Number of missing value percent is above 30%
     obj.refine_data_eliminate()
-    obj.refine_data_impute()
+    obj.refine_data_impute(sys.argv[2])
     
     #Get minimum and max value of each column (excluding PrivacySuppressed and NULL values)
-    
+    '''
     fp = open("../Data/PS_Intermediate_"+obj.np_filename, "r+")
     data_array = pickle.load(fp)
     print "why"

@@ -15,7 +15,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.grid_search import GridSearchCV
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.svm import SVR
-from sklearn import linear_model
+from sklearn import linear_model, decomposition
 from sklearn.neighbors import KNeighborsRegressor
 
 from sklearn.metrics import mean_squared_error, r2_score
@@ -176,7 +176,7 @@ class StudentDebtEarning():
         np.savetxt("../Data/Intermediate_"+self.np_filename, self.numeric_data_array)
         print self.numeric_data_array.shape    
 
-    def refine_data_impute(self):
+    def refine_data_impute(self, strategy_str="mean"):
         '''
         replacing non standard values
 
@@ -185,7 +185,7 @@ class StudentDebtEarning():
         self.modify_NULL_values(-2)
 
         print "Imputing privacySuppressed values by the mean of each column"
-        imp = Imputer(missing_values=-1,strategy="mean")
+        imp = Imputer(missing_values=-1,strategy=strategy_str)
         self.numeric_data_array = imp.fit_transform(self.numeric_data_array)
         
 
@@ -237,16 +237,14 @@ class StudentDebtEarning():
         '''
         number_of_features = self.X.shape[1]
 
-        pipeline_list = [('sel', SelectKBest())]
+        pipeline_list = [('pca', decomposition.PCA())]
         pipeline_list.append(regression_tuple)
         pipeline = Pipeline(pipeline_list)
 
-        param = {'sel__k':[i for i in range(10,number_of_features+1,5)]}
+        param = {'pca__n_components':[i for i in range(10,number_of_features+1,10)]}
         if len(param_dict):
             param.update(param_dict)
-        print "Using Kfold = 10"
-        cv = KFold(n=10)
-
+        
         print "Applying GridSearch CV"
         self.regr = GridSearchCV(pipeline, param)
 
@@ -256,7 +254,7 @@ class StudentDebtEarning():
         '''
         self.regr.fit(self.X_train, self.Y_train)
         print self.regr.best_params_
-        
+
     def predict(self):
         '''
         perform predictions
@@ -280,7 +278,7 @@ class StudentDebtEarning():
 def main(file_name):
 
     obj = StudentDebtEarning(file_name)
-    '''
+    
     if not os.path.isfile("../Data/"+obj.np_filename):
         #Read data from raw file
         obj.readData()
@@ -299,7 +297,7 @@ def main(file_name):
     obj.refine_data_impute()
     
     #Get minimum and max value of each column (excluding PrivacySuppressed and NULL values)
-    
+    '''
     fp = open("../Data/PS_Intermediate_"+obj.np_filename, "r+")
     data_array = pickle.load(fp)
     print "why"
@@ -313,9 +311,10 @@ def main(file_name):
     regression_str = ["Linear regression", "Ridge", "Lasso", "Decision Tree"]
     regression_tuple = [('lr',linear_model.LinearRegression(normalize=True)), ('ridge', linear_model.Ridge(random_state=0)),
                              ('lasso', linear_model.Lasso(random_state=0)), ('tree',DecisionTreeRegressor())]
-    regression_param = [{}, {'ridge__alpha':[0.1,1.0,10.0]}, 
+    regression_param = [{},
+                        {'ridge__alpha':[0.1,1.0,10.0]}, 
                         {'lasso__alpha': [0.1,1.0,2.0,5.0,10.0]},
-                        {'tree__max_depth': [5,10,15,20,25,30,50,100,150,200]}]
+                         {'tree__max_depth': [5,10,15,20,25,30,50,100,150,200]}]
     
     
     # Predicting for each variable

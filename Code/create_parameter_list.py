@@ -1,17 +1,23 @@
 import re
 import pickle
 
-pattern_datatype = {  'SAT.*':float, 'M[ND]_EARN_WNE_P6':int, 'SD_EARN_WNE_P6':float, '.*URL':str, 'CC.*':str, 'SAT.*':float,
+'''
+Regex for identification of parameter names to assign datatypes
+
+'''
+pattern_datatype = {  'SAT.*':float, 'MD_EARN_WNE_P6':int,'.*URL':str, 'CC.*':str, 'SAT.*':float,
 						'ACT.*':float,'COSTT.*':int,'TUITIONFEE_.*':int, 'NPT4.*':int,
 						'UG':float,
 						'RET_.*':float, '/^UG25ABV$/':float, 'PCTFLOAN':float, 'PCTPELL':float,
 						#'PAR_ED_PCT_.*':float,'APPL_SCH_PCT_GE.*':float,
 						'C\d{3}_4':float,'C\d{3}_L4':float, '.*_YR.*_RT':float, '.*_YR.*_N':float, '.*CIP.*':float,'MAIN':bool,
 						'NUMBRANCH':int, 'HIGHDEG':int, 'ICLEVEL': int, 'SCH_DEG':int, 'ADM_RATE.*':float, 'PPTUG_.*':float,
-						'DEBT_MDN':float, 'TUITFTE':float,
- 						'INEXPFTE':float, 'AVGFACSAL':float, 'NUM4_.*':int,'NUM4\d_.*':int,'PFTFAC':float,'.*_PCT_.*':float,
- 						'.*FAMINC.*':float,'PFTFTUG1_EF':float
- 
+						'DEBT_MDN$':float, 'TUITFTE':float,
+ 						'INEXPFTE':float, 'AVGFACSAL':float, 'NUM4_.*':int,'NUM4\d_.*':int,'PFTFAC':float,'.*PCT_.*':float,
+ 						'.*FAMINC.*':float,'PFTFTUG1_EF':float,'CURROPER':bool,
+ 						'UNEMP_RATE':float, 'POVERTY_RATE':float, 'MEDIAN_HH_INC':float, 'COUNT_ED':float,'LOAN_EVER':float,
+ 						'PELL_EVER':float, 'AGE_ENTRY$':float, 'AGE_ENTRY_SQ$':float, 'AGEGE24':float,'FEMALE$':float,
+ 						'MARRIED':float, 'DEPENDENT':float,'VETERAN':float,'FIRST_GEN':float ,'RPY_5YR_RT$':float
 						}
 
 with open('../Data/parameter_names.txt') as fp:
@@ -26,30 +32,33 @@ global_list = [i for i in parameter_list]
 
 for one_pattern, boolean in pattern_datatype.items():
 	found = filter(re.compile(one_pattern).match, parameter_list)
-	print one_pattern
-	print found
 	if len(found):
+		print one_pattern, found
 		for one_found in found:
+
 			ind = parameter_list.index(one_found)
 			parameter_datatype[ind] = (one_found, boolean)
 			global_list.remove(one_found)
 			count += 1
 
-found = filter(re.compile("POOLED").match, parameter_list)
+found = filter(re.compile('.*POOLED.*').match, parameter_list)
+print found
 if len(found):
 		for one_found in found:
 			ind = parameter_list.index(one_found)
 			parameter_datatype[ind] = (one_found, str)
 			if one_found in global_list:
-					global_list.remove(one_found)
+				global_list.remove(one_found)
+
+print parameter_datatype
 		
 print global_list
 print count		
-'''
+
 final_parameter_list = [x for x in parameter_list if x not in global_list]
 
 with open('../Data/parameters', 'wb') as fp:
     pickle.dump(final_parameter_list, fp)
-'''
+
 with open('../Data/parameter_datatype', 'wb') as fp:
     pickle.dump(parameter_datatype, fp)

@@ -1,0 +1,148 @@
+python experiment_2.py MERGED2011_12_PP.csv median
+/home/kruti/anaconda2/lib/python2.7/site-packages/sklearn/cross_validation.py:44: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+  "This module will be removed in 0.20.", DeprecationWarning)
+/home/kruti/anaconda2/lib/python2.7/site-packages/sklearn/grid_search.py:43: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. This module will be removed in 0.20.
+  DeprecationWarning)
+Creating stats for NULL, PrivacySuppressed frequency
+(7675, 1430)
+Plotting line graph
+Plotting line graph
+Creating stats for Y(Dependent Variables) columns
+[('MD_EARN_WNE_P6', 18.905537459283387), ('DEBT_MDN', 14.006514657980455), ('RPY_5YR_RT', 25.003257328990227)]
+Eliminating columns with more than 30/100 of missing data
+Eliminating rows with non-std values for Y output
+(7675, 1430)
+Saved list of final set of parameters after data elimination
+Saved NP data after data elimination
+(5570, 362)
+Replacing NULL values by min of each column
+Imputing privacySuppressed values by the mean of each column
+Saved Data in Final_np_yy_(yy+1).txt after data imputation and elimination
+(5570, 362)
+
+
+Y : MD_EARN_WNE_P6
+Deleting columns of Y variable from the dataset, obtaining Y vectors for debt and earnings
+
+Regressor:  Linear regression
+Using Kfold = 10
+Applying GridSearch CV
+/home/kruti/anaconda2/lib/python2.7/site-packages/sklearn/feature_selection/univariate_selection.py:113: UserWarning: Features [1] are constant.
+  UserWarning)
+/home/kruti/anaconda2/lib/python2.7/site-packages/sklearn/feature_selection/univariate_selection.py:114: RuntimeWarning: invalid value encountered in divide
+  f = msb / msw
+{'sel__k': 225}
+Root Mean Squared Error 4823.45375328
+R2 error 0.784136136839
+Get range of data of a column
+Percent root mean squared error 17.5228323662
+
+Regressor:  Ridge
+Using Kfold = 10
+Applying GridSearch CV
+{'ridge__alpha': 0.1, 'sel__k': 180}
+Root Mean Squared Error 4839.35375317
+R2 error 0.7827106469
+Get range of data of a column
+Percent root mean squared error 17.5805945107
+
+Regressor:  Lasso
+Using Kfold = 10
+Applying GridSearch CV
+/home/kruti/anaconda2/lib/python2.7/site-packages/sklearn/linear_model/coordinate_descent.py:484: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+{'sel__k': 355, 'lasso__alpha': 5.0}
+Root Mean Squared Error 4807.19229271
+R2 error 0.78558918055
+Get range of data of a column
+Percent root mean squared error 17.4637570931
+
+Regressor:  Decision Tree
+Using Kfold = 10
+Applying GridSearch CV
+{'tree__max_depth': 5, 'sel__k': 120}
+Root Mean Squared Error 5709.3858886
+R2 error 0.697557721098
+Get range of data of a column
+Percent root mean squared error 20.7412814462
+
+
+Y : DEBT_MDN
+Deleting columns of Y variable from the dataset, obtaining Y vectors for debt and earnings
+
+Regressor:  Linear regression
+Using Kfold = 10
+Applying GridSearch CV
+{'sel__k': 200}
+Root Mean Squared Error 2236.28213104
+R2 error 0.750227578483
+Get range of data of a column
+Percent root mean squared error 22.9460717296
+
+Regressor:  Ridge
+Using Kfold = 10
+Applying GridSearch CV
+{'ridge__alpha': 10.0, 'sel__k': 345}
+Root Mean Squared Error 2171.88833934
+R2 error 0.764404883284
+Get range of data of a column
+Percent root mean squared error 22.2853391045
+
+Regressor:  Lasso
+Using Kfold = 10
+Applying GridSearch CV
+{'sel__k': 345, 'lasso__alpha': 2.0}
+Root Mean Squared Error 2196.42519562
+R2 error 0.759051553251
+Get range of data of a column
+Percent root mean squared error 22.537107187
+
+Regressor:  Decision Tree
+Using Kfold = 10
+Applying GridSearch CV
+{'tree__max_depth': 5, 'sel__k': 80}
+Root Mean Squared Error 2520.41224527
+R2 error 0.682726018226
+Get range of data of a column
+Percent root mean squared error 25.8614775683
+
+
+Y : RPY_5YR_RT
+Deleting columns of Y variable from the dataset, obtaining Y vectors for debt and earnings
+
+Regressor:  Linear regression
+Using Kfold = 10
+Applying GridSearch CV
+{'sel__k': 165}
+Root Mean Squared Error 0.071900991005
+R2 error 0.82765239759
+Get range of data of a column
+Percent root mean squared error 11.6749804392
+
+Regressor:  Ridge
+Using Kfold = 10
+Applying GridSearch CV
+{'ridge__alpha': 1.0, 'sel__k': 355}
+Root Mean Squared Error 0.069045317538
+R2 error 0.84107070527
+Get range of data of a column
+Percent root mean squared error 11.2112881951
+
+Regressor:  Lasso
+Using Kfold = 10
+Applying GridSearch CV
+
+{'sel__k': 160, 'lasso__alpha': 0.1}
+Root Mean Squared Error 0.0866824546936
+R2 error 0.749505672182
+Get range of data of a column
+Percent root mean squared error 14.0751323288
+
+Regressor:  Decision Tree
+Using Kfold = 10
+Applying GridSearch CV
+{'tree__max_depth': 5, 'sel__k': 95}
+Root Mean Squared Error 0.0811617276858
+R2 error 0.780397105462
+Get range of data of a column
+Percent root mean squared error 13.1786999024
