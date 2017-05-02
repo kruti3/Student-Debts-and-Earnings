@@ -1,8 +1,4 @@
 python experiment_2.py MERGED2011_12_PP.csv median
-/home/kruti/anaconda2/lib/python2.7/site-packages/sklearn/cross_validation.py:44: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
-  "This module will be removed in 0.20.", DeprecationWarning)
-/home/kruti/anaconda2/lib/python2.7/site-packages/sklearn/grid_search.py:43: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. This module will be removed in 0.20.
-  DeprecationWarning)
 Creating stats for NULL, PrivacySuppressed frequency
 (7675, 1430)
 Plotting line graph
@@ -27,10 +23,6 @@ Deleting columns of Y variable from the dataset, obtaining Y vectors for debt an
 Regressor:  Linear regression
 Using Kfold = 10
 Applying GridSearch CV
-/home/kruti/anaconda2/lib/python2.7/site-packages/sklearn/feature_selection/univariate_selection.py:113: UserWarning: Features [1] are constant.
-  UserWarning)
-/home/kruti/anaconda2/lib/python2.7/site-packages/sklearn/feature_selection/univariate_selection.py:114: RuntimeWarning: invalid value encountered in divide
-  f = msb / msw
 {'sel__k': 225}
 Root Mean Squared Error 4823.45375328
 R2 error 0.784136136839
@@ -49,7 +41,6 @@ Percent root mean squared error 17.5805945107
 Regressor:  Lasso
 Using Kfold = 10
 Applying GridSearch CV
-/home/kruti/anaconda2/lib/python2.7/site-packages/sklearn/linear_model/coordinate_descent.py:484: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
   ConvergenceWarning)
 {'sel__k': 355, 'lasso__alpha': 5.0}
 Root Mean Squared Error 4807.19229271

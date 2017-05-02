@@ -1,0 +1,124 @@
+Creating stats for NULL, PrivacySuppressed frequency
+(7675, 1430)
+Plotting line graph
+Plotting line graph
+Creating stats for Y(Dependent Variables) columns
+[('MD_EARN_WNE_P6', 18.905537459283387), ('DEBT_MDN', 14.006514657980455), ('RPY_5YR_RT', 25.003257328990227)]
+Eliminating columns with more than 30/100 of missing data
+Eliminating rows with non-std values for Y output
+(7675, 1430)
+Saved list of final set of parameters after data elimination
+Saved NP data after data elimination
+(5570, 362)
+Replacing NULL values by min of each column
+Imputing privacySuppressed values by the mean of each column
+Saved Data in Final_np_yy_(yy+1).txt after data imputation and elimination
+(5570, 362)
+
+
+Y : MD_EARN_WNE_P6
+Deleting columns of Y variable from the dataset, obtaining Y vectors for debt and earnings
+
+Regressor:  Linear regression
+Applying GridSearch CV
+{'pca__n_components': 350}
+Root Mean Squared Error 4733.20197545
+R2 error 0.792138631886
+Get range of data of a column
+Percent root mean squared error 17.1949621606
+
+Regressor:  Ridge
+Applying GridSearch CV
+{'ridge__alpha': 1.0, 'pca__n_components': 350}
+Root Mean Squared Error 4735.7783894
+R2 error 0.791912280809
+Get range of data of a column
+Percent root mean squared error 17.2043218584
+
+Regressor:  Lasso
+Applying GridSearch CV
+{'pca__n_components': 350, 'lasso__alpha': 1.0}
+Root Mean Squared Error 4728.53773698
+R2 error 0.792548095627
+Get range of data of a column
+Percent root mean squared error 17.1780177318
+
+Regressor:  Decision Tree
+Applying GridSearch CV
+{'tree__max_depth': 5, 'pca__n_components': 50}
+Root Mean Squared Error 7159.08326814
+R2 error 0.524469327607
+Get range of data of a column
+Percent root mean squared error 26.0077990626
+
+
+Y : DEBT_MDN
+Deleting columns of Y variable from the dataset, obtaining Y vectors for debt and earnings
+
+Regressor:  Linear regression
+Applying GridSearch CV
+{'pca__n_components': 250}
+Root Mean Squared Error 2254.4558322
+R2 error 0.746151407489
+Get range of data of a column
+Percent root mean squared error 23.1325486705
+
+Regressor:  Ridge
+Applying GridSearch CV
+{'ridge__alpha': 10.0, 'pca__n_components': 350}
+Root Mean Squared Error 2183.84851241
+R2 error 0.761802984516
+Get range of data of a column
+Percent root mean squared error 22.4080601982
+
+Regressor:  Lasso
+Applying GridSearch CV
+{'pca__n_components': 310, 'lasso__alpha': 2.0}
+Root Mean Squared Error 2202.30288277
+R2 error 0.757760260008
+Get range of data of a column
+Percent root mean squared error 22.597417033
+
+Regressor:  Decision Tree
+Applying GridSearch CV
+{'tree__max_depth': 5, 'pca__n_components': 30}
+Root Mean Squared Error 2822.92787648
+R2 error 0.601992861064
+Get range of data of a column
+Percent root mean squared error 28.9655337501
+
+
+Y : RPY_5YR_RT
+Deleting columns of Y variable from the dataset, obtaining Y vectors for debt and earnings
+
+Regressor:  Linear regression
+Applying GridSearch CV
+{'pca__n_components': 320}
+Root Mean Squared Error 0.0704861166536
+R2 error 0.834368604012
+Get range of data of a column
+Percent root mean squared error 11.4452390942
+
+Regressor:  Ridge
+Applying GridSearch CV
+{'ridge__alpha': 1.0, 'pca__n_components': 340}
+Root Mean Squared Error 0.0698947894715
+R2 error 0.837136000453
+Get range of data of a column
+Percent root mean squared error 11.349221874
+
+Regressor:  Lasso
+Applying GridSearch CV
+{'pca__n_components': 130, 'lasso__alpha': 0.1}
+Root Mean Squared Error 0.08743041364
+R2 error 0.745164129
+Get range of data of a column
+Percent root mean squared error 14.1965827559
+
+Regressor:  Decision Tree
+Applying GridSearch CV
+{'tree__max_depth': 5, 'pca__n_components': 20}
+Root Mean Squared Error 0.0843488864174
+R2 error 0.762811187734
+Get range of data of a column
+Percent root mean squared error 13.6962173292

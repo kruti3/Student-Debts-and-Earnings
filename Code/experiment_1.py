@@ -13,10 +13,8 @@ from sklearn.feature_selection import f_regression
 from sklearn.cross_validation import train_test_split, KFold
 from sklearn.pipeline import Pipeline
 from sklearn.grid_search import GridSearchCV
-from sklearn.tree import DecisionTreeRegressor
 from sklearn.svm import SVR
 from sklearn import linear_model
-from sklearn.neighbors import KNeighborsRegressor
 
 from sklearn.metrics import mean_squared_error, r2_score
 
@@ -262,7 +260,7 @@ class StudentDebtEarning():
 def main(file_name):
 
     obj = StudentDebtEarning(file_name)
-    '''
+    
     if not os.path.isfile("../Data/"+obj.np_filename):
         #Read data from raw file
         obj.readData()
@@ -281,7 +279,7 @@ def main(file_name):
     obj.refine_data_impute()
     
     #Get minimum and max value of each column (excluding PrivacySuppressed and NULL values)
-    
+    '''
     fp = open("../Data/PS_Intermediate_"+obj.np_filename, "r+")
     data_array = pickle.load(fp)
     print "why"

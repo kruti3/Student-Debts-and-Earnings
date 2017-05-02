@@ -280,7 +280,7 @@ class StudentDebtEarning():
 def main(file_name):
 
     obj = StudentDebtEarning(file_name)
-    '''
+    
     if not os.path.isfile("../Data/"+obj.np_filename):
         #Read data from raw file
         obj.readData()
@@ -297,7 +297,7 @@ def main(file_name):
     #Eliminate data if Y output is absent or Number of missing value percent is above 30%
     obj.refine_data_eliminate()
     obj.refine_data_impute()
-    
+    '''
     #Get minimum and max value of each column (excluding PrivacySuppressed and NULL values)
     
     fp = open("../Data/PS_Intermediate_"+obj.np_filename, "r+")
