@@ -82,9 +82,9 @@ def plot_line_graph(data_array, file_name):
             string = "Privacy Suppressed"
         # This plots the data
         plt.grid(True)
-        plt.ylabel("Percentage of Non Standard Values with respect to School")
+        plt.ylabel("% of Non Std Values wrt Num of Schools")
         plt.xlabel("Feature Space")
-        plt.title("Percentage of Non Standard Values" + string)
+        plt.title("Percentage of Non Standard Values :" + string)
         plt.xlim(0, len(data_array))                                                                                                                                                                                                                      
         plt.ylim(0, 100)
 
